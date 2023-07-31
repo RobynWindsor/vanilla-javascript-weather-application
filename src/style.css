@@ -12,8 +12,8 @@ body {
 small {
   color: #222;
 }
-s a {
-  color: #00feba;
+a {
+  color: #c153e2;
 }
 .card {
   width: 90%;
@@ -104,10 +104,7 @@ s a {
   font-weight: 400;
   margin-top: 5px;
 }
-
 .gitLink {
-  font-size: 15px;
-  font-weight: 400;
-  margin-top: 5px;
-  margin-left: 250px;
+  margin: 30px auto 0;
+  text-align: center;
 }
