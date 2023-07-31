@@ -45,7 +45,6 @@ function handleSubmit(event) {
   let city = document.querySelector("#city-input").value;
   search(city);
 }
-const weatherIcon = document.querySelector("#weather-icon");
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
