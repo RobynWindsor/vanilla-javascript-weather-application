@@ -9,6 +9,13 @@ body {
   background: #222;
 }
 
+small {
+  color: white;
+}
+
+a {
+  color: #00feba;
+}
 .card {
   width: 90%;
   max-width: 470px;
@@ -96,4 +103,11 @@ body {
   font-size: 15px;
   font-weight: 400;
   margin-top: 5px;
+}
+
+.gitLink {
+  font-size: 15px;
+  font-weight: 400;
+  margin-top: 5px;
+  margin-left: 250px;
 }
