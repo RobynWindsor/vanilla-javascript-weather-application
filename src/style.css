@@ -28,7 +28,7 @@ body {
 }
 
 .searching input {
-  border: 0;
+  border: 2px;
   outline: 0;
   background: #ebfffc;
   color: #555;
@@ -41,7 +41,7 @@ body {
 }
 
 .searching button {
-  border: 0;
+  border: 2px;
   outline: 0;
   background: #ebfffc;
   border-radius: 50%;
@@ -96,10 +96,4 @@ body {
   font-size: 15px;
   font-weight: 400;
   margin-top: 5px;
-}
-
-.celcius {
-  display: flex;
-  align-items: center;
-  font-weight: 200;
 }
