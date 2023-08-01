@@ -24,7 +24,7 @@ h3.innerHTML = `${day} ${hours}:${minutes}`;
 
 function search(city) {
   let apiKey = "1d292957c6ee13304574a1bb47a59610";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query={query}&key={key}`;
   axios.get(apiUrl).then(showTemperature);
 }
 function showTemperature(response) {
@@ -38,6 +38,8 @@ function showTemperature(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].main;
 }
 
 function handleSubmit(event) {
@@ -45,6 +47,7 @@ function handleSubmit(event) {
   let city = document.querySelector("#city-input").value;
   search(city);
 }
+const weatherIcon = document.querySelector("#weather-icon");
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
