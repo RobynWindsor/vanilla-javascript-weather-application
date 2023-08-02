@@ -18,8 +18,8 @@ a {
 .card {
   width: 90%;
   max-width: 470px;
-  background: #ebfffc;
-  color: #222;
+  background: linear-gradient(180deg, #00feba, #5b548a);
+  color: white;
   margin: 100px auto 0;
   border-radius: 20px;
   padding: 40px 35px;
