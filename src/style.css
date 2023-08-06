@@ -15,6 +15,10 @@ small {
 a {
   color: #c153e2;
 }
+
+p {
+  margin-bottom: 10px;
+}
 .card {
   width: 90%;
   max-width: 470px;
@@ -61,7 +65,7 @@ a {
 }
 .weather-icon {
   width: 170px;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 .weather h1 {
   font-size: 80px;
@@ -84,12 +88,13 @@ a {
 .col {
   display: flex;
   align-items: center;
-  text-align: left;
+  text-align: center;
 }
 
 .col img {
   width: 40px;
   margin-right: 10px;
+  display: flex;
 }
 
 .humidity,
@@ -102,6 +107,7 @@ a {
   font-size: 15px;
   font-weight: 400;
   margin-top: 5px;
+  padding: 10px;
 }
 .gitLink {
   margin: 30px auto 0;
