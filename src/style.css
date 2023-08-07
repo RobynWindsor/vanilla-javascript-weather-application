@@ -113,3 +113,17 @@ p {
   margin: 30px auto 0;
   text-align: center;
 }
+.weather-forecast-temperatures {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.weather-forecast-temperature-max {
+  font-size: 15px;
+  padding: 2px;
+}
+.weather-forecast-temperature-min {
+  font-size: 15px;
+  opacity: 0.6;
+  padding: 2px;
+}

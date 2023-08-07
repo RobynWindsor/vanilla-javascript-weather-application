@@ -5,54 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Index</title>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
-    ></script>
-
+    />
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <div class="container">
-    <div class="weather-app">
-      <form class="search-form" id="search-form">
-        <div class="card" id="card">
-          <div class="searching" id="searching">
-            <input
-              type="search"
-              placeholder="enter city name"
-              autocomplete="off"
-              autospellcheck="false"
-              id="city-input"
-            />
-            <button><img src="src/images/search.png" /></button>
+    <form class="search-form" id="search-form">
+      <div class="card" id="card">
+        <div class="searching" id="searching">
+          <input
+            type="search"
+            placeholder="enter city name"
+            autocomplete="off"
+            autospellcheck="fasle"
+            id="city-input"
+          />
+          <button><img src="src/images/search.png" /></button>
+        </div>
+        <div class="weather">
+          <img
+            src="src/images/rain.png"
+            class="weather-icon"
+            id="weather-icon"
+          />
+          <h1 class="temp" id="temp"></h1>
+          <h2 class="city" id="city"></h2>
+          <h3 class="date" id="date"></h3>
+          <div class="weather-forecast" id="forecast"></div>
+        </div>
+        <div class="details">
+          <div class="col">
+            <img src="src/images/humidity.png" />
+            <div>
+              <p class="humidity" id="humidity"></p>
+              <p>Humidity</p>
+            </div>
           </div>
-          <div class="weather">
-            <img src="images/rain.png" class="weather-icon" id="weather-icon" />
-            <h1 class="temp" id="temp"></h1>
-            <h2 class="city" id="city"></h2>
-            <h3 class="date" id="date"></h3>
-            <h4 class="details" id="details"></h4>
-            <div class="details">
-              <div class="col">
-                <img src="src/images/humidity.png" />
-                <div>
-                  <p class="humidity" id="humidity"></p>
-                  <p>Humidity</p>
-                </div>
-              </div>
-              <div class="col">
-                <img src="src/images/wind.png" />
-                <div>
-                  <p class="wind" id="wind">15 km/h</p>
-                  <p>Wind Speed</p>
-                </div>
-              </div>
+          <div class="col">
+            <img src="src/images/wind.png" />
+            <div>
+              <p class="wind" id="wind">15 km/h</p>
+              <p>Wind Speed</p>
             </div>
           </div>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
   <div class="gitLink">
     <small>
