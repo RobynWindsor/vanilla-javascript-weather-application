@@ -113,6 +113,18 @@ p {
   margin: 30px auto 0;
   text-align: center;
 }
+
+.weather-forecast {
+  text-align: center;
+  
+}
+
+.weather-forecast-date {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .weather-forecast-temperatures {
   display: flex;
   justify-content: space-evenly;

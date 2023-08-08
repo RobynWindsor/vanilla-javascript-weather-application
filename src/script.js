@@ -23,36 +23,42 @@ if (minutes < 10) {
 h3.innerHTML = `${day} ${hours}:${minutes}`;
 
 function displayForecast(response) {
-  let forecast = response.data.daily;
+  console.log(response);
+  let forecast = response.data.daily.slice(1);
+  // Skip first day
 
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  forecast.forEach(function (forecastDay){
-  
-      forecastHTML =
-        forecastHTML +
-        `<div class="col-3">
-        <div class="weather-forecast-date">${forecastDay.daily.time}</div>
+  forecast.forEach(function (day) {
+    const timeSeconds = day.time;
+    const timeMilliseconds = timeSeconds * 1000;
+    const dayIndexOfWeek = new Date(timeMilliseconds).getDay();
+    const dayNameOfWeek = days[dayIndexOfWeek];
+
+    console.log(day);
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2 weather-forecast">
+        <div class="weather-forecast-date">${dayNameOfWeek}</div>
         <img
-          src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
-            forecastDay.daily[0].icon
-          }.png"
-          alt=""
+          src="${day.condition.icon_url}"
+          alt="${day.condition.description}"
+          title="${day.condition.description}"
           width="42"
         />
         <div class="weather-forecast-temperatures">
-          <span class="weather-forecast-temperature-max">${Math.round(
-            forecastDay.temperature.max
+          <span class="weather-forecast-temperature-max"> ${Math.round(
+            day.temperature.maximum
           )}° </span>
-          <span class="weather-forecast-temperature-min">${Math.round(
-            forecastDay.temperature.min
-          )} °</span>
+          <span class="weather-forecast-temperature-min"> ${Math.round(
+            day.temperature.minimum
+          )}° </span>
         </div>
       </div>
   `;
-  }
-  )};
+  });
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -61,24 +67,9 @@ function displayForecast(response) {
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "748ed80fdo221bt48fa84019ab0b737f";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.lat}&Lon=${coordinates.lon}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
   console.log(apiUrl);
-}
-
-function showTemperature(response) {
-  let iconElement = document.querySelector("#weather-icon");
-  iconElement.setAttribute("src", response.data.condition.icon_url);
-  document.querySelector("#city").innerHTML = response.data.city;
-  document.querySelector("#temp").innerHTML = `${Math.round(
-    response.data.temperature.current
-  )}°C`;
-  document.querySelector("#humidity").innerHTML =
-    response.data.temperature.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
-  getForecast(response.data.coordinates);
 }
 
 function search(city) {
@@ -86,6 +77,25 @@ function search(city) {
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
   console.log(apiUrl);
+}
+
+function showTemperature(response) {
+  let iconElement = document.querySelector("#weather-icon");
+  iconElement.setAttribute("src", response.data.condition.icon_url);
+  console.log(response.data);
+  console.log(response.data.condition.icon_url);
+  document.querySelector;
+  document.querySelector("#city").innerHTML = response.data.city;
+  document.querySelector("#temp").innerHTML = `${Math.round(
+    response.data.temperature.current
+  )}°C`;
+
+  document.querySelector("#humidity").innerHTML =
+    response.data.temperature.humidity;
+  document.querySelector("#wind").innerHTML = Math.round(
+    response.data.wind.speed
+  );
+  getForecast(response.data.coordinates);
 }
 
 function handleSubmit(event) {
@@ -96,6 +106,4 @@ function handleSubmit(event) {
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);
-
 search("Cape Town");
-displayForecast();
